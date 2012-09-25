@@ -2,6 +2,11 @@ BvhParser parserA = new BvhParser();
 PBvh bvh1, bvh2, bvh3;
 	
 	
+import ddf.minim.*;
+	
+AudioPlayer player;
+Minim minim;
+	
 public void setup()
 {
   size( 1280, 720, P3D );
@@ -9,10 +14,14 @@ public void setup()
   noStroke();
   frameRate( 30 );
   
-  bvh1 = new PBvh( loadStrings( "A_test.bvh" ) );
-  bvh2 = new PBvh( loadStrings( "B_test.bvh" ) );
-  bvh3 = new PBvh( loadStrings( "C_test.bvh" ) );
+  bvh1 = new PBvh( loadStrings( "kashiyuka.bvh" ) );
+  bvh2 = new PBvh( loadStrings( "nocchi.bvh" ) );
+  bvh3 = new PBvh( loadStrings( "aachan.bvh" ) );
 
+  minim = new Minim(this);
+  player = minim.loadFile("Perfume_globalsite_sound.wav");
+  player.play();
+  
   loop();
 }
 
